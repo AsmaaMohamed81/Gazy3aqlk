@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Gazy3aqlk</string>
+
+    <string name="add_item">Add Item</string>
+    <string name="btn_update">Update</string>
+    <string name="btn_delete">Delete</string>
+    <string name="empty_list_text">No Data found</string>
+    <string name="enter_desc">Description</string>
+    <string name="enter_title">Title</string>
+</resources>
