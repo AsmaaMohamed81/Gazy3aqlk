@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
@@ -14,7 +14,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginRight="6dp"
         android:padding="3dp"
-        android:visibility="invisible" />
+        android:text="dss"
+        android:visibility="visible" />
 
     <TextView
         android:id="@+id/title"
@@ -24,6 +25,7 @@
         android:layout_toRightOf="@id/id"
         android:maxLines="1"
         android:padding="3dp"
+        android:text="dsd"
         android:textSize="17sp"
         android:textStyle="bold" />
 
@@ -37,6 +39,7 @@
         android:ellipsize="end"
         android:maxLines="2"
         android:padding="3dp"
+        android:text="dsd"
         android:visibility="visible" />
 
     <!--<TextView-->
@@ -51,4 +54,10 @@
         <!--android:padding="3dp"-->
         <!--android:visibility="visible" />-->
 
-</RelativeLayout>
+    <ImageView
+        android:id="@+id/imgwww"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"/>
+
+</LinearLayout>

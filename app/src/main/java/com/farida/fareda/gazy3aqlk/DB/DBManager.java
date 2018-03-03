@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.farida.fareda.gazy3aqlk.MOdle.Model;
 
@@ -30,6 +31,8 @@ public class DBManager {
     public DBManager open() throws SQLException {
         dbHelper = new DatabaseHelper(context);
         database = dbHelper.getWritableDatabase();
+
+
         return this;
     }
 
@@ -37,19 +40,39 @@ public class DBManager {
         dbHelper.close();
     }
 
-    public void insert(String name, String desc ,String cate) {
+    public void insert(String name, String desc ,byte[] imageBytes, String cate) {
         ContentValues contentValue = new ContentValues();
         contentValue.put(DatabaseHelper.TITLE, name);
         contentValue.put(DatabaseHelper.DESC, desc);
         contentValue.put(DatabaseHelper.CAT, cate);
+        contentValue.put(DatabaseHelper.IMAGE, imageBytes);
+
+        Toast.makeText(context, "sucesss", Toast.LENGTH_SHORT).show();
+
 
         database.insert(DatabaseHelper.TABLE_NAME, null, contentValue);
+    }
+    public void addContacts(Model model){
+        database=dbHelper.getReadableDatabase();
+
+        ContentValues values=new ContentValues();
+        values.put(DatabaseHelper.TITLE, model.getTitle());
+        values.put(DatabaseHelper.DESC, model.getDesc() );
+        values.put(DatabaseHelper.CAT, model.getCat() );
+        values.put(DatabaseHelper.IMAGE, model.getImg() );
+
+
+
+        database.insert(DatabaseHelper.TABLE_NAME, null, values);
+        database.close();
     }
 
     public Cursor fetch(String cat) {
 
-        String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.TITLE ,DatabaseHelper.DESC};
-        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns,DatabaseHelper.CAT+ " =?", new String[]{cat}, null, null, null, null);
+        String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.TITLE ,DatabaseHelper.DESC,
+                DatabaseHelper.IMAGE};
+        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns,DatabaseHelper.CAT+ " =?"
+                , new String[]{cat}, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
 
@@ -84,6 +107,36 @@ public class DBManager {
 
         return list;
 
+    }
+
+    public List<Model> getAllContacts() {
+        List<Model> contactList = new ArrayList<Model>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + DatabaseHelper.TABLE_NAME;
+        database=dbHelper.getWritableDatabase();
+
+
+        Cursor cursor = database.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Model model = new Model();
+
+                model.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndexOrThrow("_id"))));
+
+
+                model.setTitle(cursor.getString(cursor.getColumnIndexOrThrow("title")));
+                model.setImg(cursor.getBlob(cursor.getColumnIndexOrThrow("image")));
+
+
+                // Adding contact to list
+                contactList.add(model);
+            } while (cursor.moveToNext());
+        }
+
+        // return contact list
+        return contactList;
     }
 
 

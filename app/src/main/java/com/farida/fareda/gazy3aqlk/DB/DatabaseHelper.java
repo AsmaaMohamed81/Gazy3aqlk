@@ -3,20 +3,20 @@ package com.farida.fareda.gazy3aqlk.DB;
 /**
  * Created by anupamchugh on 19/10/15.
  */
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     // Table Name
-    public static final String TABLE_NAME ="elmyi" ;
+    public static final String TABLE_NAME ="elhmreryi" ;
 
     // Table columns
     public static final String _ID = "_id";
     public static final String TITLE = "title";
     public static final String DESC = "description";
     public static final String CAT = "cat";
+    public static final String IMAGE = "image";
 
 
     // Database Information
@@ -26,8 +26,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     static final int DB_VERSION = 1;
 
     // Creating table query
-    private static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + _ID
-            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + TITLE + " TEXT NOT NULL, " + DESC + " TEXT, "+ CAT + " TEXT);";
+    private static final String CREATE_TABLE = "create table "
+            + TABLE_NAME
+            + "(" + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + TITLE + " TEXT NOT NULL, "
+            + DESC + " TEXT, "
+            + CAT + " TEXT,"
+            + IMAGE + " BLOB" + ")";
 
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -38,11 +43,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE);
-//        ContentValues cv = new ContentValues();
-//        cv.put(TITLE,"Malware");
-//        cv.put(DESC,"Virus");
-//        cv.put(CAT,"elmy");
-//        db.insert(TABLE_NAME, null, cv);
+
     }
 
     @Override
