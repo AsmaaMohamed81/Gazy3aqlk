@@ -47,7 +47,7 @@ public class ListActivity extends ActionBarActivity {
 
         dbManager = new DBManager(this);
         dbManager.open();
-    //    Cursor cursor = dbManager.fetch("elmy");
+        //    Cursor cursor = dbManager.fetch("elmy");
 
         listView = (ListView) findViewById(R.id.list_view);
         listView.setEmptyView(findViewById(R.id.empty));
@@ -57,7 +57,7 @@ public class ListActivity extends ActionBarActivity {
 //
 //        listView.setAdapter(adapter);
 
-        final ArrayList<Model> contacts = new ArrayList<>(dbManager.getAllContacts());
+        final ArrayList<Model> contacts = new ArrayList<>(dbManager.getAllContacts(AdmainMainActivity.nameTable));
         data=new dataAdapter(this, contacts);
 
         listView.setAdapter(data);
@@ -81,7 +81,7 @@ public class ListActivity extends ActionBarActivity {
 //                String id = idTextView.getText().toString();
 //                String title = titleTextView.getText().toString();
 //                String desc = descTextView.getText().toString();
-              //  String cat = cattt.getText().toString();
+                //  String cat = cattt.getText().toString();
 
                 String title = dataModel.getTitle();
                 String desc=dataModel.getDesc();
@@ -95,7 +95,7 @@ public class ListActivity extends ActionBarActivity {
                 Intent modify_intent = new Intent(getApplicationContext(), ModifyActivity.class);
                 modify_intent.putExtra("title", title);
                 modify_intent.putExtra("desc", desc);
-               modify_intent.putExtra("id", String.valueOf(id));
+                modify_intent.putExtra("id", String.valueOf(id));
 
 
                 startActivity(modify_intent);
@@ -173,7 +173,7 @@ public class ListActivity extends ActionBarActivity {
 
 
     private void ShowRecords(){
-        final ArrayList<Model> contacts = new ArrayList<>(dbManager.getAllContacts());
+        final ArrayList<Model> contacts = new ArrayList<>(dbManager.getAllContacts("elmy"));
         data=new dataAdapter(this, contacts);
 
         listView.setAdapter(data);

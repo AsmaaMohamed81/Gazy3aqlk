@@ -74,7 +74,7 @@ public class AddActivity extends Activity implements OnClickListener {
                 //     final String catt = cat.getText().toString();
 
 
-                dbManager.insert(name, desc,photo,MainActivity.nameTable);
+                dbManager.insert(name, desc,photo,AdmainMainActivity.nameTable);
 
                 Intent main = new Intent(AddActivity.this, ListActivity.class)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

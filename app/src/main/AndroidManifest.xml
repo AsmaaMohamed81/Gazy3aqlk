@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.farida.fareda.gazy3aqlk">
+    package="com.farida.fareda.gazy3aqlk">
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
 
     <application
         android:allowBackup="true"
@@ -16,28 +16,26 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Activitiess.ListActivity"
-            android:label="@string/app_name"/>
+            android:label="@string/app_name" />
         <activity
             android:name=".Activitiess.ModifyActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"/>
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" />
         <activity
             android:name=".Activitiess.AddActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"/>
-        <activity android:name=".Activitiess.MainActivity">
-        </activity>
-        <activity android:name=".Activitiess.UserActivity">
-        </activity>
-        <activity android:name=".Activitiess.LoginActivity">
-        </activity>
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" />
+        <activity android:name=".Activitiess.MainActivity"></activity>
+        <activity android:name=".Activitiess.UserActivity"></activity>
+        <activity android:name=".Activitiess.LoginActivity"></activity>
+        <activity android:name=".Activitiess.AdmainMainActivity"></activity>
     </application>
 
 </manifest>

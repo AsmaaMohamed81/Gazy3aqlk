@@ -109,14 +109,15 @@ public class DBManager {
 
     }
 
-    public List<Model> getAllContacts() {
+    public List<Model> getAllContacts(String cat) {
         List<Model> contactList = new ArrayList<Model>();
-        // Select All Query
-        String selectQuery = "SELECT  * FROM " + DatabaseHelper.TABLE_NAME;
+
+        String[] columns = new String[] {  DatabaseHelper._ID, DatabaseHelper.TITLE ,DatabaseHelper.DESC,
+                DatabaseHelper.IMAGE };
         database=dbHelper.getWritableDatabase();
 
+        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns,DatabaseHelper.CAT+ " =?", new String[]{cat}, null, null, null, null);
 
-        Cursor cursor = database.rawQuery(selectQuery, null);
 
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
@@ -143,7 +144,7 @@ public class DBManager {
 
 
 
-    
+
     public int update(long _id, String name, String desc) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseHelper.TITLE, name);
