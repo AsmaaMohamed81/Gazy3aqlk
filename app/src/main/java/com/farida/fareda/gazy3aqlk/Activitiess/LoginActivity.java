@@ -17,6 +17,7 @@ import com.farida.fareda.gazy3aqlk.R;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
     EditText name, pass;
@@ -24,7 +25,8 @@ public class LoginActivity extends AppCompatActivity {
     Button log;
 
     Model model;
-    ArrayList<Model> Array = new ArrayList<>();
+
+    List<Model> Array ;
 
     public static String [] title={
             "1",
@@ -42,18 +44,12 @@ public class LoginActivity extends AppCompatActivity {
 
     };
 
-    Drawable img1 = getResources().getDrawable(R.drawable.det);
-    Drawable img2 = getResources().getDrawable(R.drawable.logo);
-
-    public Drawable[] photo={
-            img1,
-            img2,
-
-    };
+//    Drawable img1 = getResources().getDrawable(R.drawable.det);
+//    Drawable img2 = getResources().getDrawable(R.drawable.logo);
 
     Drawable drawable;
     ByteArrayOutputStream bytearrayoutputstream;
-    byte[] BYTE;
+    byte[] BYTE1,BYTE2,BYTE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,18 +58,30 @@ public class LoginActivity extends AppCompatActivity {
 
         InputStream iStream = null;
 
+        drawable = getResources().getDrawable(R.drawable.logo);
+        Bitmap bitmap1 = ((BitmapDrawable)drawable).getBitmap();
+        bytearrayoutputstream = new ByteArrayOutputStream();
+        bitmap1.compress(Bitmap.CompressFormat.JPEG,70,bytearrayoutputstream);
+        BYTE1 = bytearrayoutputstream.toByteArray();
+        BYTE2 = bytearrayoutputstream.toByteArray();
 
 
+         byte [][] photo={
+                BYTE1,
+                BYTE2,
 
+        };
+
+        Array = new ArrayList<Model>();
 
         name = (EditText) findViewById(R.id.name);
         pass = (EditText) findViewById(R.id.pass);
         log = (Button) findViewById(R.id.log);
 
         for (int i = 0 ; i<title.length;i++) {
-            Model nModel = new Model(title[i],desc[i],cat[i],convertTobyte(photo[i]));
+            model = new Model(title[i],desc[i],cat[i],photo[i]);
 
-            Array.add(nModel);
+            Array.add(model);
         }
 
 
@@ -91,6 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(LoginActivity.this, "You are not admain ", Toast.LENGTH_SHORT).show();
                     Intent o = new Intent(LoginActivity.this, MainActivity.class);
+                    
                     startActivity(o);
 
                 }
