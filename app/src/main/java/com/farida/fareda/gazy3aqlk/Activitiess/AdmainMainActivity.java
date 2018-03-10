@@ -9,7 +9,7 @@ import android.widget.Button;
 import com.farida.fareda.gazy3aqlk.R;
 
 public class AdmainMainActivity extends AppCompatActivity {
-    Button elmy ,adby;
+    Button elmy ,kalma,shakhsyat,kawny,egtma3y,doaa,skafy,ta3lam;
 
     static String nameTable;
     @Override
@@ -18,7 +18,15 @@ public class AdmainMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         elmy=(Button)findViewById(R.id.elmy);
-        adby=(Button)findViewById(R.id.adby);
+        kalma=(Button)findViewById(R.id.kalma);
+        shakhsyat=(Button)findViewById(R.id.shakhsyat);
+        kawny=(Button)findViewById(R.id.kawny);
+        egtma3y=(Button)findViewById(R.id.egtma3y);
+        doaa=(Button)findViewById(R.id.doaa);
+        skafy=(Button)findViewById(R.id.skafy);
+        ta3lam=(Button)findViewById(R.id.ta3lam);
+
+
 
         elmy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,10 +39,72 @@ public class AdmainMainActivity extends AppCompatActivity {
             }
         });
 
-        adby.setOnClickListener(new View.OnClickListener() {
+        kalma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nameTable = "adby";
+                nameTable = "kalma";
+
+                Intent ii = new Intent(getApplicationContext(), ListActivity.class);
+                startActivity(ii);
+
+            }
+        });
+
+        shakhsyat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nameTable = "shakhsyat";
+
+                Intent ii = new Intent(getApplicationContext(), ListActivity.class);
+                startActivity(ii);
+
+            }
+        });
+
+        kawny.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nameTable = "kawny";
+
+                Intent ii = new Intent(getApplicationContext(), ListActivity.class);
+                startActivity(ii);
+
+            }
+        });
+        egtma3y.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nameTable = "egtma3y";
+
+                Intent ii = new Intent(getApplicationContext(), ListActivity.class);
+                startActivity(ii);
+
+            }
+        });
+        doaa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nameTable = "doaa";
+
+                Intent ii = new Intent(getApplicationContext(), ListActivity.class);
+                startActivity(ii);
+
+            }
+        });
+        skafy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nameTable = "skafy";
+
+                Intent ii = new Intent(getApplicationContext(), ListActivity.class);
+                startActivity(ii);
+
+            }
+        });
+        ta3lam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nameTable = "ta3lam";
 
                 Intent ii = new Intent(getApplicationContext(), ListActivity.class);
                 startActivity(ii);

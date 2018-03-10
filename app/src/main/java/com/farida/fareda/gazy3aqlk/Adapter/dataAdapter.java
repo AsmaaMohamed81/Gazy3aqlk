@@ -32,7 +32,8 @@ public class dataAdapter extends ArrayAdapter<Model> {
     }
 
     public  class  Holder{
-        TextView nameFV;
+        TextView title;
+        TextView desc;
         ImageView pic;
     }
 
@@ -50,10 +51,11 @@ public class dataAdapter extends ArrayAdapter<Model> {
 
             viewHolder = new Holder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.listcontacts, parent, false);
+            convertView = inflater.inflate(R.layout.activity_view_record, parent, false);
 
-            viewHolder.nameFV = (TextView) convertView.findViewById(R.id.txtViewer);
-            viewHolder.pic = (ImageView) convertView.findViewById(R.id.imgView);
+            viewHolder.title = (TextView) convertView.findViewById(R.id.title);
+            viewHolder.desc = (TextView) convertView.findViewById(R.id.desc);
+            viewHolder.pic = (ImageView) convertView.findViewById(R.id.imgwww);
 
 
             convertView.setTag(viewHolder);
@@ -62,7 +64,8 @@ public class dataAdapter extends ArrayAdapter<Model> {
         }
 
 
-        viewHolder.nameFV.setText("First Name: "+data.getTitle());
+        viewHolder.title.setText(data.getTitle());
+        viewHolder.desc.setText(data.getDesc());
         viewHolder.pic.setImageBitmap(convertToBitmap(data.getImg()));
 
 

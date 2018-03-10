@@ -140,6 +140,8 @@ public class DBManager {
                 Model model = new Model();
 
                 model.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndexOrThrow("_id"))));
+                model.setDesc(cursor.getString(cursor.getColumnIndexOrThrow("description")));
+
 
 
                 model.setTitle(cursor.getString(cursor.getColumnIndexOrThrow("title")));

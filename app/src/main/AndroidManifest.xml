@@ -40,6 +40,8 @@
         <activity android:name=".Activitiess.UserActivity"></activity>
         <activity android:name=".Activitiess.LoginActivity"></activity>
         <activity android:name=".Activitiess.AdmainMainActivity"></activity>
+        <activity android:name=".Activitiess.Details"></activity>
+
     </application>
 
 </manifest>

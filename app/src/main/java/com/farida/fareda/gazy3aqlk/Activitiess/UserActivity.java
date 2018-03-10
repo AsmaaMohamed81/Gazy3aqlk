@@ -3,9 +3,6 @@ package com.farida.fareda.gazy3aqlk.Activitiess;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +16,6 @@ import com.farida.fareda.gazy3aqlk.DB.DBManager;
 import com.farida.fareda.gazy3aqlk.MOdle.Model;
 import com.farida.fareda.gazy3aqlk.R;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,9 +28,9 @@ public class UserActivity extends AppCompatActivity {
     List<Model> mArrayList;
     DBManager dbManager;
 
-    Drawable drawable;
-    ByteArrayOutputStream bytearrayoutputstream;
-    byte[] BYTE;
+//    Drawable drawable;
+//    ByteArrayOutputStream bytearrayoutputstream;
+//    byte[] BYTE;
 
 
     @Override
@@ -80,28 +76,28 @@ public class UserActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
     }
 
-
-    public static Bitmap drawableToBitmap(Drawable drawable) {
-        if (drawable instanceof BitmapDrawable) {
-            return ((BitmapDrawable) drawable).getBitmap();
-        }
-
-        final int width = !drawable.getBounds().isEmpty() ? drawable
-                .getBounds().width() : drawable.getIntrinsicWidth();
-
-        final int height = !drawable.getBounds().isEmpty() ? drawable
-                .getBounds().height() : drawable.getIntrinsicHeight();
-
-        final Bitmap bitmap = Bitmap.createBitmap(width <= 0 ? 1 : width,
-                height <= 0 ? 1 : height, Bitmap.Config.ARGB_8888);
-
-        Log.v("Bitmap width - Height :", width + " : " + height);
-        Canvas canvas = new Canvas(bitmap);
-        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-        drawable.draw(canvas);
-
-        return bitmap;
-    }
+//
+//    public static Bitmap drawableToBitmap(Drawable drawable) {
+//        if (drawable instanceof BitmapDrawable) {
+//            return ((BitmapDrawable) drawable).getBitmap();
+//        }
+//
+//        final int width = !drawable.getBounds().isEmpty() ? drawable
+//                .getBounds().width() : drawable.getIntrinsicWidth();
+//
+//        final int height = !drawable.getBounds().isEmpty() ? drawable
+//                .getBounds().height() : drawable.getIntrinsicHeight();
+//
+//        final Bitmap bitmap = Bitmap.createBitmap(width <= 0 ? 1 : width,
+//                height <= 0 ? 1 : height, Bitmap.Config.ARGB_8888);
+//
+//        Log.v("Bitmap width - Height :", width + " : " + height);
+//        Canvas canvas = new Canvas(bitmap);
+//        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+//        drawable.draw(canvas);
+//
+//        return bitmap;
+//    }
 
     //COnvert and resize our image to 400dp for faster uploading our images to DB
     protected Bitmap decodeUri(Uri selectedImage, int REQUIRED_SIZE) {
