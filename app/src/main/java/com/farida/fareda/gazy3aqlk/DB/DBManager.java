@@ -68,16 +68,30 @@ public class DBManager {
     }
 
     public Cursor fetch(String cat) {
+        List<Model> contactList = new ArrayList<Model>();
+
 
         String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.TITLE ,DatabaseHelper.DESC,
                 DatabaseHelper.IMAGE};
         Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns,DatabaseHelper.CAT+ " =?"
                 , new String[]{cat}, null, null, null, null);
-        if (cursor != null) {
-            cursor.moveToFirst();
+        if (cursor.moveToFirst()) {
+            do {
+                Model model = new Model();
+
+                model.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndexOrThrow("_id"))));
 
 
+                model.setTitle(cursor.getString(cursor.getColumnIndexOrThrow("title")));
+                model.setImg(cursor.getBlob(cursor.getColumnIndexOrThrow("image")));
+
+
+                // Adding contact to list
+                contactList.add(model);
+            } while (cursor.moveToNext());
         }
+
+        // return contact list
         return cursor;
     }
 
@@ -115,6 +129,7 @@ public class DBManager {
         String[] columns = new String[] {  DatabaseHelper._ID, DatabaseHelper.TITLE ,DatabaseHelper.DESC,
                 DatabaseHelper.IMAGE };
         database=dbHelper.getWritableDatabase();
+
 
         Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns,DatabaseHelper.CAT+ " =?", new String[]{cat}, null, null, null, null);
 

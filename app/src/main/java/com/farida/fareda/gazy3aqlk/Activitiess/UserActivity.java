@@ -20,7 +20,6 @@ import com.farida.fareda.gazy3aqlk.MOdle.Model;
 import com.farida.fareda.gazy3aqlk.R;
 
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,21 +52,21 @@ public class UserActivity extends AppCompatActivity {
 
         dbManager.open();
 
-       InputStream iStream = null;
-        drawable = getResources().getDrawable(R.drawable.logo);
+//        InputStream iStream = null;
+//        drawable = getResources().getDrawable(R.drawable.logo);
+//
+//        Bitmap bitmap1 = ((BitmapDrawable)drawable).getBitmap();
+//        bytearrayoutputstream = new ByteArrayOutputStream();
+//
+//
+//        bitmap1.compress(Bitmap.CompressFormat.JPEG,70,bytearrayoutputstream);
+//
+//        BYTE = bytearrayoutputstream.toByteArray();
 
-       Bitmap bitmap1 = ((BitmapDrawable)drawable).getBitmap();
-        bytearrayoutputstream = new ByteArrayOutputStream();
-
-
-        bitmap1.compress(Bitmap.CompressFormat.JPEG,70,bytearrayoutputstream);
-
-        BYTE = bytearrayoutputstream.toByteArray();
-
-       // db.addContacts(new Contact(f_name, photo));
+        // db.addContacts(new Contact(f_name, photo));
 //        dbManager.addContacts(new Model("ss","fdfd","elmy",BYTE));
 //        dbManager.addContacts(new Model("ss","fdfd","elmy",BYTE));
-      //  mArrayList=dbManager.fetchtit("elmy");
+        //  mArrayList=dbManager.fetchtit("elmy");
 
         mArrayList=dbManager.getAllContacts(MainActivity.nameTable);
 

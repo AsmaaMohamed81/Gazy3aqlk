@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,9 +18,39 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:gravity=""
-    android:background="@drawable/back"
     tools:context="com.farida.fareda.gazy3aqlk.Activitiess.MainActivity">
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/shakhsyat"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:background="@drawable/det"
+            android:textColor="@color/text"
+            android:textSize="20dp"
+            android:layout_height="wrap_content"
+            android:text="شخصيات "/>
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/egtma3y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+
+            android:textColor="@color/text"
+
+            android:background="@drawable/det"
+
+            android:text="اجتماعي "/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -31,7 +68,7 @@
 
         <Button
             android:layout_weight="1"
-            android:id="@+id/adby"
+            android:id="@+id/kawny"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
@@ -40,7 +77,7 @@
 
             android:background="@drawable/det"
 
-            android:text="أدبي "/>
+            android:text="كوني "/>
     </LinearLayout>
 
     <LinearLayout
@@ -50,7 +87,7 @@
         android:orientation="horizontal">
         <Button
             android:layout_weight="1"
-            android:id="@+id/elfmy"
+            android:id="@+id/kalma"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_width="wrap_content"
@@ -58,11 +95,11 @@
             android:textColor="@color/text"
             android:textSize="20dp"
             android:layout_height="wrap_content"
-            android:text="علمي "/>
+            android:text="كلمه "/>
 
         <Button
             android:layout_weight="1"
-            android:id="@+id/adbfy"
+            android:id="@+id/doaa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
@@ -71,6 +108,37 @@
 
             android:background="@drawable/det"
 
-            android:text="أدبي "/>
+            android:text="دعاء "/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/skafy"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:background="@drawable/det"
+            android:textColor="@color/text"
+            android:textSize="20dp"
+            android:layout_height="wrap_content"
+            android:text="ثقافي "/>
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/ta3lam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+
+            android:textColor="@color/text"
+
+            android:background="@drawable/det"
+
+            android:text="هل تعلم "/>
     </LinearLayout>
 </LinearLayout>
+</ScrollView>
