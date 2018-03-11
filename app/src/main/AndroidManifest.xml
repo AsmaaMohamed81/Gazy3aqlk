@@ -5,10 +5,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
-
-
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -36,12 +32,14 @@
             android:name=".Activitiess.AddActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" />
-        <activity android:name=".Activitiess.MainActivity"></activity>
-        <activity android:name=".Activitiess.UserActivity"></activity>
-        <activity android:name=".Activitiess.LoginActivity"></activity>
-        <activity android:name=".Activitiess.AdmainMainActivity"></activity>
-        <activity android:name=".Activitiess.Details"></activity>
-
+        <activity android:name=".Activitiess.MainActivity" />
+        <activity android:name=".Activitiess.UserActivity" />
+        <activity
+            android:name=".Activitiess.LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".Activitiess.AdmainMainActivity" />
+        <activity android:name=".Activitiess.Details" />
+        <activity android:name=".Activitiess.AboutUs"></activity>
     </application>
 
 </manifest>

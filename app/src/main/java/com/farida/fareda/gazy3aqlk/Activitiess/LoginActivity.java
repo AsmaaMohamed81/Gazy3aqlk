@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText name, pass;
 
     Button log;
-    TextView skip;
+    TextView skip ,aboutus;
 
     Model model;
 
@@ -60,6 +60,8 @@ public class LoginActivity extends AppCompatActivity {
         pass = (EditText) findViewById(R.id.pass);
         log = (Button) findViewById(R.id.log);
         skip=(TextView)findViewById(R.id.skip);
+        aboutus=(TextView)findViewById(R.id.aboutus);
+
 
 
 
@@ -89,6 +91,15 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent o = new Intent(LoginActivity.this, MainActivity.class);
+
+                startActivity(o);
+
+            }
+        });
+        aboutus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent o = new Intent(LoginActivity.this, AboutUs.class);
 
                 startActivity(o);
 
