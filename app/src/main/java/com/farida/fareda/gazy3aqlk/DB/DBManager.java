@@ -8,7 +8,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.farida.fareda.gazy3aqlk.MOdle.Model;
@@ -52,76 +51,76 @@ public class DBManager {
 
         database.insert(DatabaseHelper.TABLE_NAME, null, contentValue);
     }
-    public void addContacts(Model model){
-        database=dbHelper.getReadableDatabase();
+//    public void addContacts(Model model){
+//        database=dbHelper.getReadableDatabase();
+//
+//        ContentValues values=new ContentValues();
+//        values.put(DatabaseHelper.TITLE, model.getTitle());
+//        values.put(DatabaseHelper.DESC, model.getDesc() );
+//        values.put(DatabaseHelper.CAT, model.getCat() );
+//        values.put(DatabaseHelper.IMAGE, model.getImg() );
+//
+//
+//
+//        database.insert(DatabaseHelper.TABLE_NAME, null, values);
+//        database.close();
+//    }
 
-        ContentValues values=new ContentValues();
-        values.put(DatabaseHelper.TITLE, model.getTitle());
-        values.put(DatabaseHelper.DESC, model.getDesc() );
-        values.put(DatabaseHelper.CAT, model.getCat() );
-        values.put(DatabaseHelper.IMAGE, model.getImg() );
-
-
-
-        database.insert(DatabaseHelper.TABLE_NAME, null, values);
-        database.close();
-    }
-
-    public Cursor fetch(String cat) {
-        List<Model> contactList = new ArrayList<Model>();
-
-
-        String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.TITLE ,DatabaseHelper.DESC,
-                DatabaseHelper.IMAGE};
-        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns,DatabaseHelper.CAT+ " =?"
-                , new String[]{cat}, null, null, null, null);
-        if (cursor.moveToFirst()) {
-            do {
-                Model model = new Model();
-
-                model.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndexOrThrow("_id"))));
-
-
-                model.setTitle(cursor.getString(cursor.getColumnIndexOrThrow("title")));
-                model.setImg(cursor.getBlob(cursor.getColumnIndexOrThrow("image")));
-
-
-                // Adding contact to list
-                contactList.add(model);
-            } while (cursor.moveToNext());
-        }
-
-        // return contact list
-        return cursor;
-    }
-
-    public List<Model> fetchtit(String cat) {
-        List<Model> list= new ArrayList<>();
-
-        String[] columns = new String[] {  DatabaseHelper.TITLE };
-        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns,DatabaseHelper.CAT+ " =?", new String[]{cat}, null, null, null, null);
-        Model dataModel = null;
-
-        while(cursor.moveToNext()){
-
-            dataModel= new Model();
-
-            String m1=cursor.getString(cursor.getColumnIndexOrThrow("title"));
-
-            dataModel.setTitle(m1);
-
-            list.add(dataModel);
-        }
-
-        for (Model mo:list ) {
-
-            Log.i("Hellomo",""+mo.getTitle());
-        }
-
-
-        return list;
-
-    }
+//    public Cursor fetch(String cat) {
+//        List<Model> contactList = new ArrayList<Model>();
+//
+//
+//        String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.TITLE ,DatabaseHelper.DESC,
+//                DatabaseHelper.IMAGE};
+//        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns,DatabaseHelper.CAT+ " =?"
+//                , new String[]{cat}, null, null, null, null);
+//        if (cursor.moveToFirst()) {
+//            do {
+//                Model model = new Model();
+//
+//                model.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndexOrThrow("_id"))));
+//
+//
+//                model.setTitle(cursor.getString(cursor.getColumnIndexOrThrow("title")));
+//                model.setImg(cursor.getBlob(cursor.getColumnIndexOrThrow("image")));
+//
+//
+//                // Adding contact to list
+//                contactList.add(model);
+//            } while (cursor.moveToNext());
+//        }
+//
+//        // return contact list
+//        return cursor;
+//    }
+//
+//    public List<Model> fetchtit(String cat) {
+//        List<Model> list= new ArrayList<>();
+//
+//        String[] columns = new String[] {  DatabaseHelper.TITLE };
+//        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns,DatabaseHelper.CAT+ " =?", new String[]{cat}, null, null, null, null);
+//        Model dataModel = null;
+//
+//        while(cursor.moveToNext()){
+//
+//            dataModel= new Model();
+//
+//            String m1=cursor.getString(cursor.getColumnIndexOrThrow("title"));
+//
+//            dataModel.setTitle(m1);
+//
+//            list.add(dataModel);
+//        }
+//
+//        for (Model mo:list ) {
+//
+//            Log.i("Hellomo",""+mo.getTitle());
+//        }
+//
+//
+//        return list;
+//
+//    }
 
     public List<Model> getAllContacts(String cat) {
         List<Model> contactList = new ArrayList<Model>();
@@ -162,11 +161,14 @@ public class DBManager {
 
 
 
-    public int update(long _id, String name, String desc) {
+    public int update(long _id, String name, String desc,byte[] imageBytes) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseHelper.TITLE, name);
         contentValues.put(DatabaseHelper.DESC, desc);
-        int i = database.update(DatabaseHelper.TABLE_NAME, contentValues, DatabaseHelper._ID + " = " + _id, null);
+        contentValues.put(DatabaseHelper.IMAGE, imageBytes);
+
+        int i = database.update(DatabaseHelper.TABLE_NAME,
+                contentValues, DatabaseHelper._ID + " = " + _id, null);
         return i;
     }
 

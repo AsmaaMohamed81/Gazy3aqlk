@@ -45,6 +45,8 @@ public class AddActivity extends Activity implements OnClickListener {
 
         setTitle("Add Item");
 
+
+
         setContentView(R.layout.activity_add_record);
 
         subjectEditText = (EditText) findViewById(R.id.title_edittext);

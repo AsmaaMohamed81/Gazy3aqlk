@@ -86,6 +86,12 @@ public class ListActivity extends ActionBarActivity {
                 String title = dataModel.getTitle();
                 String desc=dataModel.getDesc();
 
+                byte[] img = dataModel.getImg();
+
+
+
+
+
                 int id =dataModel.getId();
 
 
@@ -96,6 +102,7 @@ public class ListActivity extends ActionBarActivity {
                 modify_intent.putExtra("title", title);
                 modify_intent.putExtra("desc", desc);
                 modify_intent.putExtra("id", String.valueOf(id));
+                modify_intent.putExtra("img", img);
 
 
                 startActivity(modify_intent);
